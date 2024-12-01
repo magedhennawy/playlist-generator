@@ -1,0 +1,55 @@
+@use "../variables" as *;
+
+.button {
+    font: inherit;
+    font-weight: bold;
+
+    border: none;
+    outline: none;
+    color: $white;
+    padding: 1rem 1.7rem;
+    background-color: $darkgrey;
+    border-radius: 50px;
+    transition: scale 0.2s linear;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.45rem;
+    cursor: pointer;
+
+    &.primary {
+        background-color: $green;
+    }
+    & > secondary {
+        background-color: $lightgrey;
+    }
+
+    &:hover,
+    &:focus-visible {
+        scale: 1.04;
+        // transform scale gets bigger - done
+    }
+
+    &:active {
+        filter: brightness(70%);
+        // dim filter property or darker colour bkg - done
+    }
+
+    &.disabled {
+        opacity: 0.5;
+        pointer-events: none;
+
+        &:hover,
+        &:focus-visible {
+            scale: 1;
+        }
+
+        &:active {
+            filter: brightness(100%);
+        }
+    }
+
+    img {
+        height: 1em;
+    }
+}

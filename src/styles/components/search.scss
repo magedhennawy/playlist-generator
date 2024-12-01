@@ -1,0 +1,66 @@
+@use "../variables" as *;
+
+.search {
+    position: absolute;
+    top: 90%;
+    z-index: 99;
+    width: clamp(15rem, 20vw, 30rem);
+
+    input {
+        border: none;
+        outline: none;
+        font: inherit;
+        padding: 0.5rem 1rem;
+        border-radius: 8px;
+        width: 100%;
+    }
+
+    &__results {
+        position: absolute;
+        top: 100%;
+        width: calc(100% - 1rem);
+        margin-inline: 0.5rem;
+        list-style: none;
+        max-height: 15em;
+        overflow-y: auto;
+        border-radius: 0 0 8px 8px;
+        background-color: $black;
+
+        &::-webkit-scrollbar {
+            width: 0.4em;
+
+            &-thumb {
+                background-color: $darkgrey;
+                border-radius: 0.4em;
+            }
+        }
+
+        &__no-results {
+            text-align: center;
+            color: $darkgrey;
+            padding: 0.5rem;
+        }
+    }
+
+    &__result {
+        display: grid;
+        grid-template-columns: 2.5em 1fr;
+        gap: 0.5rem;
+        padding: 0.5rem;
+        align-items: center;
+        cursor: pointer;
+
+        &:hover {
+            background-color: $darkgrey;
+        }
+
+        &__info {
+            line-height: 1;
+
+            p {
+                color: $lightgrey;
+                font-size: 0.8rem;
+            }
+        }
+    }
+}

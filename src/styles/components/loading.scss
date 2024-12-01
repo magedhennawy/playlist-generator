@@ -1,0 +1,95 @@
+@use "../variables.scss" as *;
+
+html:has(.loading) {
+    overflow: hidden;
+}
+
+.wrapper {
+    display: grid;
+    place-items: center;
+    position: fixed;
+    inset: 0;
+    z-index: 999;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(12px);
+}
+
+.loading {
+    width: 80%;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+
+    #note {
+        animation: flicker 2s infinite alternate;
+
+        @keyframes flicker {
+            40% {
+                opacity: 0.8;
+            }
+            42% {
+                opacity: 0.1;
+            }
+            43% {
+                opacity: 0.8;
+            }
+            45% {
+                opacity: 0.1;
+            }
+            46% {
+                opacity: 0.8;
+            }
+        }
+    }
+
+    .bar {
+        width: 80%;
+        height: 1.5rem;
+        border-radius: 0.75rem;
+        border: 2px solid $green;
+        position: relative;
+
+        &::before {
+            content: "";
+            display: block;
+            width: 0;
+            height: 100%;
+            background: $green;
+            border-radius: inherit;
+            position: absolute;
+            left: 0;
+
+            box-shadow: 0 0 16px 0 $green;
+
+            animation: load 6s linear infinite;
+
+            @keyframes load {
+                0% {
+                    width: 0;
+                    left: 0;
+                    right: auto;
+                }
+                49% {
+                    width: 100%;
+                    left: 0;
+                    right: auto;
+                }
+                50% {
+                    width: 100%;
+                    left: auto;
+                    right: 0;
+                }
+                99% {
+                    width: 0;
+                    left: auto;
+                    right: 0;
+                }
+                100% {
+                    width: 0;
+                    left: 0;
+                    right: auto;
+                }
+            }
+        }
+    }
+}

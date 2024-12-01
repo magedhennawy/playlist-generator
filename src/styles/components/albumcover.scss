@@ -1,0 +1,38 @@
+@use "../variables" as *;
+
+.albumcover {
+    position: relative;
+
+    button.close {
+        position: absolute;
+        top: -0.5rem;
+        right: -0.5rem;
+        border-radius: 50%;
+        background-color: $lightgrey;
+        border: none;
+        outline: none;
+        width: 2rem;
+        aspect-ratio: 1/1;
+        display: grid;
+        place-items: center;
+        font-size: 1.5em;
+        line-height: 0;
+        cursor: pointer;
+        box-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
+    }
+
+    img {
+        width: 100%;
+        aspect-ratio: 1/1;
+        border-radius: 14px;
+    }
+    &__info {
+        line-height: 1.25;
+        margin-inline: 0.5rem;
+
+        p {
+            color: $lightgrey;
+            font-size: 0.8em;
+        }
+    }
+}

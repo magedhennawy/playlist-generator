@@ -1,0 +1,44 @@
+@use "../variables" as *;
+
+.landing {
+    min-height: calc(100vh - 7rem);
+    display: flex;
+    flex-flow: column;
+
+    .button {
+        width: 230px;
+        height: 60px;
+        margin: 20px;
+        display: flex;
+    }
+}
+
+.sharebtn {
+    position: relative;
+    left: 73rem;
+}
+
+.genbtn {
+    display: flex;
+    justify-content: center;
+}
+
+.container {
+    display: flex;
+    justify-content: space-evenly;
+    place-items: start center;
+    gap: 1rem;
+    width: 100%;
+    height: min-content;
+    margin-top: 5rem;
+    margin-bottom: 3rem;
+
+    > * {
+        width: clamp(250px, 20vw, 350px);
+    }
+
+    @media (max-width: 800px) {
+        flex-flow: column;
+        align-items: center;
+    }
+}
